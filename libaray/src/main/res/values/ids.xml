@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_horizontal_scroll" type="id"/> <!--HorizontalListView元素控件id-->
+</resources>

@@ -1,0 +1,47 @@
+package com.tm.ws.util;
+
+import java.text.DecimalFormat;
+
+/**
+ * Created by ws on 2017/11/7.
+ */
+
+public class CalculateUtil {
+
+    /**
+     * 返回byte的数据大小对应的文本
+     *
+     * @param size
+     * @return
+     */
+    public static String getDataSize(long size) {
+        if (size < 0) {
+            size = 0;
+        }
+        DecimalFormat formater = new DecimalFormat("####.00");
+        if (size < 1024) {
+            return size + "bytes";
+        } else if (size < 1024 * 1024) {
+            float kb = size / 1024f;
+            return formater.format(kb) + "KB";
+        } else if (size < 1024 * 1024 * 1024) {
+            float mb = size / 1024f / 1024f;
+            return formater.format(mb) + "MB";
+        } else if (size < 1024 * 1024 * 1024 * 1024) { //findBug显示为无效的条件
+            float gb = size / 1024f / 1024f / 1024f;
+            return formater.format(gb) + "GB";
+        } else {
+            return "size: error";
+        }
+    }
+
+    /**
+     * 返回kb的数据大小对应的文本
+     */
+    public static String getKBDataSize(long size) {
+        if (size < 0) {
+            size = 0;
+        }
+        return getDataSize(size * 1024);
+    }
+}
